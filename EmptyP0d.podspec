@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EmptyP0d'
-  s.version          = '0.1.02'
+  s.version          = '0.1.03'
   s.summary          = 'A short meaningful description of EmptyP0d.'
 
 # This description is used to generate tags and improve search results.
