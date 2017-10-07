@@ -1,0 +1,6 @@
+framework module EmptyP0d {
+  umbrella header "EmptyP0d-umbrella.h"
+
+  export *
+  module * { export * }
+}
