@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EmptyP0d'
-  s.version          = '0.1.0'
+  s.version          = '0.1.01'
   s.summary          = 'A meaningful short description of EmptyP0d.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'EmptyP0d/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'EmptyP0d' => ['EmptyP0d/Assets/*.png']
   # }
