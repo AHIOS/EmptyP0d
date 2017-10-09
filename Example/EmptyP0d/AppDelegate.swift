@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        _ = SplashManager(baseURL:URL(fileURLWithPath: "stocazzo"))
+        _ = SplashManager(fromViewWithTag: 999, appDelegate: self)
         
         return true
     }

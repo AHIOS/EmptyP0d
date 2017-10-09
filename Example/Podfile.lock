@@ -1,5 +1,5 @@
 PODS:
-  - EmptyP0d (0.1.0)
+  - EmptyP0d (0.1.03)
 
 DEPENDENCIES:
   - EmptyP0d (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  EmptyP0d: 91653b88508f95bba35fb42633641ffd8944c480
+  EmptyP0d: 7dbf977e1643598b94ecd7e6dd194c1f679e3128
 
 PODFILE CHECKSUM: 929faafd95246a722e857c65a9af45f821264542
 
