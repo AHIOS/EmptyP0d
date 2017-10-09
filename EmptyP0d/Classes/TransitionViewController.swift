@@ -13,6 +13,8 @@ class TransitionViewController: UIViewController {
     var constraints = [NSLayoutConstraint]()
     var logo : UIImageView? = nil
     var bkgColor : UIColor? = nil
+    var bkgImg : UIView? = nil
+    var parentVC : UIViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +26,6 @@ class TransitionViewController: UIViewController {
         self.view.backgroundColor = self.bkgColor;
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.addConstraints(constraints);
@@ -35,8 +33,9 @@ class TransitionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.bkgImg = self.parent?.view.snapshotView(afterScreenUpdates: true)
         setNeedsStatusBarAppearanceUpdate()
-        UIView.animate(withDuration: 1.5, delay: 0.2, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 1.50, delay: 0.2, options: [.curveEaseInOut], animations: {
             // change constraints inside animation block
             self.updateConstraints()
             
@@ -46,12 +45,14 @@ class TransitionViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { (flag) in
             UIView .animate(withDuration: 0.3, animations: {
-                self.view.alpha = 0
+                self.logo?.alpha = 0
+                self.logo?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             }, completion : { (flag) in
                 print("finished \(flag)")
-                self.willMove(toParentViewController: nil)
-                self.view.removeFromSuperview()
-                self.removeFromParentViewController()
+//                self.willMove(toParentViewController: nil)
+//                self.view.removeFromSuperview()
+//                self.removeFromParentViewController()
+//                self.logo?.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
         })
     
@@ -61,7 +62,7 @@ class TransitionViewController: UIViewController {
         for constr in self.constraints {
             print("constraint \n\(constr)")
             if constr.identifier == "Vertical" {
-                constr.constant = ((UIApplication.shared.statusBarFrame.height + 44) * constr.multiplier) - 22 * constr.multiplier
+                constr.constant = ((UIApplication.shared.statusBarFrame.height + 44) * constr.multiplier)
             }else{
                 //constr.constant = 42 - 50;
             }
